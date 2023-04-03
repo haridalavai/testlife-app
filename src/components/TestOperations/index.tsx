@@ -166,7 +166,7 @@ const OperationsBar: React.FC<OperationsBarProps> = ({
               // value={getDateInFormat(new Date(history))}
               // defaultValue={""}
               data={calcData() || []}
-              onChange={(e) => {
+              onChange={(e: any) => {
                 console.log("e", e);
                 setHistory(e);
               }}

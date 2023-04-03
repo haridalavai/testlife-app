@@ -125,6 +125,7 @@ const Suite = () => {
             suite={suite}
             fetchSuite={fetchSuite}
             history={history}
+            liveExecutionId={liveExecutionId}
           />
         </Stack>
         <Stack
@@ -136,7 +137,7 @@ const Suite = () => {
             <Box>
               <iframe
                 // src={`http://143.244.142.134:3000${browserDetails?.devtoolsFrontendUrl}`}
-                src={`http://localhost:3000/devtools/inspector.html?ws=localhost:3000/devtools/page/${browserDetails.id}`}
+                src={`http://143.244.142.134:3000/devtools/inspector.html?ws=143.244.142.134:3000/devtools/page/${browserDetails.id}`}
                 style={{
                   width: "100%",
                   height: "100vh",

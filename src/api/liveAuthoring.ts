@@ -29,6 +29,7 @@ export const runRegression = async (suitId:string,execType:string) => {
 export const executeStep = async (stepId:string,executionId?:string) => {
   const data = executionId ? {execution_id: executionId} : {};
   const response = await axios.post(`http://${process.env.NEXT_PUBLIC_SERVER_HOST}:${process.env.NEXT_PUBLIC_SERVER_PORT}/v1/step/execute/${stepId}`,
+    data
     );
   return response;
 }

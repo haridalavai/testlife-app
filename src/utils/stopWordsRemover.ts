@@ -43,7 +43,7 @@ export function removeStopWords(text: string): string[] {
 
   // split the text into words but ignore words inside quotes
   const inputWords:any = text.match(/(?:[^\s"]+|"[^"]*")+/g);
-  const filteredWords = inputWords.filter((word:any) => !stopWords.includes(word));
+  const filteredWords = inputWords?.filter((word:any) => !stopWords.includes(word));
   return filteredWords;
 
 }

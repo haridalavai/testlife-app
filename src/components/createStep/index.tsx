@@ -49,6 +49,7 @@ const CreateStep: React.FC<CreateStepProps> = ({
       }
       if (liveActive) {
         const res = await executeStep(resp.data.id, executionId);
+        fetchSuite();
       }
     }
   };

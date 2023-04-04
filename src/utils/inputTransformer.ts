@@ -55,7 +55,6 @@ export function transformInput(
       isValid = true;
       break;
     case Commands.WRITE:
-      console.log(inputWords);
       if (inputWords.length !== 3) {
         transformedInput = {};
         isValid = false;
@@ -77,6 +76,30 @@ export function transformInput(
       };
       isValid = true;
       break;
+
+    case Commands.ASSERT:
+      if (inputWords.length !== 3) {
+        transformedInput = {};
+        isValid = false;
+        break;
+      }
+
+      // regex of the form 'ASSERT "value" "type"'
+      let assertRegex = /ASSERT "(?:[^"]|"")*" "(?:[^"]|"")*"/i;
+      if (!assertRegex.test(inputWords.join(' '))) {
+        transformedInput = {};
+        isValid = false;
+        break;
+      }
+
+      transformedInput = {
+        action: Commands.ASSERT,
+        value: {value:inputWords[1].replace(/"/g, ''),type:inputWords[2].replace(/"/g, '')}
+      };
+      isValid = true;
+      break;
+
+
 
 
     default:
@@ -105,6 +128,9 @@ export function transformStep(command: any) {
       break;
     case Commands.WRITE:
       commandString = `${action} "${command.value.data}" into "${command.value.value}"`;
+      break;
+    case Commands.ASSERT:
+      commandString = `${action} "${command.value.value}"  "${command.value.type}"`;
       break;
     default:
       commandString = ``;

@@ -64,9 +64,8 @@ const OperationsBar: React.FC<OperationsBarProps> = ({
     const suiteId = suite?.id;
     let execType = liveActive ? "live" : "reg";
     execType = inLive ? "live" : execType;
-    console.log("execType", execType, inLive);
     const resp = await runRegression(suite?.id, execType);
-    console.log("resp", resp.data.execution_id);
+    setLiveExecutionId(resp.data.execution_id);
     getStatus(resp.data.execution_id);
   };
 
@@ -80,7 +79,7 @@ const OperationsBar: React.FC<OperationsBarProps> = ({
       fetchSuite();
       return;
     }
-    setTimeout(() => getStatus(execution_id), 4000);
+    setTimeout(() => getStatus(execution_id), 1000);
   };
 
   // useEffect(() => {
@@ -95,10 +94,10 @@ const OperationsBar: React.FC<OperationsBarProps> = ({
         setLoading(true);
         const resp = await startLiveAuthoring(suite?.id);
         setBrowserDetails(resp.data);
-        fetchSuite();
-        setLiveExecutionId(suite?.last_executed_status[0]?.id);
-        setLiveActive(true);
         handleRegresionTest(true);
+        fetchSuite();
+        // setLiveExecutionId(suite?.last_executed_status[0]?.id);
+        setLiveActive(true);
         setLoading(false);
       } catch (err: any) {
         notifications.show({

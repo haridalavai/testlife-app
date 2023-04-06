@@ -18,7 +18,7 @@ import {
 // } from '../../routes/index';
 
 export const navbarConfig = [
-  { icon: IconGitPullRequest, label: 'Pull Requests', route: '/' },
+  { icon: IconHome2, label: 'Pull Requests', route: '/' },
   // { icon: IconGauge, label: 'Integrations', route: INTEGRATIONS },
   // { icon: IconDeviceDesktopAnalytics, label: 'Products', route: PRODUCTS },
   // { icon: IconCalendarStats, label: 'Payments', route: PAYMENTS },

@@ -35,7 +35,7 @@ const CreateSuitModal: React.FC<ICreateSuitModal> = ({ opened, close }) => {
       notifications.show({
         title: "Success",
         color: "green",
-        message: "Test Suite Created Successfully",
+        message: "Test Suite Created Successfully!",
       });
       handleClose();
     } catch (err: any) {

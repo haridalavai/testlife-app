@@ -44,7 +44,7 @@ const Suite = () => {
   const fetchSuite = async () => {
     try {
       const res = await axios.get(
-        `http://${process.env.NEXT_PUBLIC_SERVER_HOST}:${process.env.NEXT_PUBLIC_SERVER_PORT}/v1/suite/${suiteId}`
+        `${process.env.NEXT_PUBLIC_SERVER_HOST}/v1/suite/${suiteId}`
       );
       setSuite(res.data);
       console.log(res.data);

@@ -41,7 +41,7 @@ export default function Home() {
   const fetchSuites = async () => {
     try {
       const res = await axios.get(
-        `http://${process.env.NEXT_PUBLIC_SERVER_HOST}:${process.env.NEXT_PUBLIC_SERVER_PORT}/v1/suites`
+        `${process.env.NEXT_PUBLIC_SERVER_HOST}/v1/suites`
       );
       setSuites(res.data);
     } catch (err: any) {

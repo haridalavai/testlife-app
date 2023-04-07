@@ -27,7 +27,7 @@ const CreateSuitModal: React.FC<ICreateSuitModal> = ({ opened, close }) => {
     try {
       setLoading(true);
       const resp = await axios.post(
-        `http://${process.env.NEXT_PUBLIC_SERVER_HOST}:${process.env.NEXT_PUBLIC_SERVER_PORT}/v1/suite`,
+        `${process.env.NEXT_PUBLIC_SERVER_HOST}/v1/suite`,
         {
           suite_name: testSuiteName,
         }

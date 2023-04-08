@@ -162,9 +162,9 @@ const Suite = () => {
                 <SuiteExecutionData suite={suite} history={history} />
               </Tabs.Panel>
 
-              <Tabs.Panel value="second" pt="xs">
+              {/* <Tabs.Panel value="second" pt="xs">
                 <StepDataEditor />
-              </Tabs.Panel>
+              </Tabs.Panel> */}
             </Tabs>
           )}
         </Stack>

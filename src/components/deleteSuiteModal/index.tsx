@@ -41,7 +41,7 @@ const DeleteDuiteModal: React.FC<IDeleteDuiteModal> = ({
       notifications.show({
         title: "Success",
         color: "green",
-        message: "Test Suite Created Successfully",
+        message: "Test Suite Deleted Successfully",
       });
       handleClose();
     } catch (err: any) {

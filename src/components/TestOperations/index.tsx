@@ -59,14 +59,25 @@ const OperationsBar: React.FC<OperationsBarProps> = ({
   const [loading, setLoading] = React.useState(false);
 
   const handleRegresionTest = async (inLive: boolean) => {
-    let status = "unExecuted";
-    setRegressionActive(true);
-    const suiteId = suite?.id;
-    let execType = liveActive ? "live" : "reg";
-    execType = inLive ? "live" : execType;
-    const resp = await runRegression(suite?.id, execType);
-    setLiveExecutionId(resp.data.execution_id);
-    getStatus(resp.data.execution_id);
+    try {
+      let status = "unExecuted";
+      setRegressionActive(true);
+      const suiteId = suite?.id;
+      let execType = liveActive ? "live" : "reg";
+      execType = inLive ? "live" : execType;
+      const resp = await runRegression(suite?.id, execType);
+      setLiveExecutionId(resp.data.execution_id);
+      getStatus(resp.data.execution_id);
+    } catch (e: any) {
+      setRegressionActive(false);
+      // handleLiveAuthoring();
+
+      notifications.show({
+        title: "Error",
+        color: "red",
+        message: e.message,
+      });
+    }
   };
 
   const getStatus = async (execution_id: string) => {
@@ -208,6 +219,7 @@ const OperationsBar: React.FC<OperationsBarProps> = ({
             color={liveActive ? "red" : "teal"}
             onClick={handleLiveAuthoring}
             loading={loading}
+            disabled={suite?.step?.length === 0 && !liveActive}
             leftIcon={
               <IconPlayerPlayFilled
                 style={{

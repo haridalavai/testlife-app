@@ -137,7 +137,7 @@ const Suite = () => {
             <Box>
               <iframe
                 // src={`http://143.244.142.134:3000${browserDetails?.devtoolsFrontendUrl}`}
-                src={`http://143.244.142.134:3000/devtools/inspector.html?ws=143.244.142.134:3000/devtools/page/${browserDetails.id}`}
+                src={`https://${process.env.NEXT_PUBLIC_BROWSER_HOST}/devtools/inspector.html?wss=browser.axden.in/devtools/page/${browserDetails.id}`}
                 style={{
                   width: "100%",
                   height: "100vh",

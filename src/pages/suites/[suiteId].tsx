@@ -155,7 +155,7 @@ const Suite = () => {
             >
               <Tabs.List>
                 <Tabs.Tab value="first">Summary</Tabs.Tab>
-                <Tabs.Tab value="second">Step Editor</Tabs.Tab>
+                {/* <Tabs.Tab value="second">Step Editor</Tabs.Tab> */}
               </Tabs.List>
 
               <Tabs.Panel value="first" pt="xs">
